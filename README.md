@@ -2,17 +2,17 @@
 
 Starter files for the custom HTML5 video player built with JavaScript. Features:
 
-- Video and audio playback
+- Video and audio playbacks
 - Native fullscreen
 - Picture-in-Picture
 - Custom controls
 - Keyboard shortcuts
 
-Tutorial: https://freshman.tech/custom-html5-video/
+Tutorial: <https://freshman.tech/custom-html5-video/>
 
 ## Live demo
 
-This project is live at http://custom-html5-video.surge.sh/
+This project is live at <http://custom-html5-video.surge.sh/>
 
 ## Prerequisites
 

@@ -3,16 +3,18 @@
    ========================================================================== */
 
 :root {
-  --youtube-red: #FE0900;
+  --youtube-red: #fe0900;
 }
 
 html {
   box-sizing: border-box;
-  font-family: "YouTube Noto",Roboto,Arial,Helvetica,sans-serif;
+  font-family: "YouTube Noto", Roboto, Arial, Helvetica, sans-serif;
   height: 100%;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -53,7 +55,11 @@ video {
   position: absolute;
   bottom: 0;
   transition: all 0.2s ease;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.5)
+  );
 }
 
 .video-controls.hide {
@@ -102,7 +108,7 @@ progress::-moz-progress-bar {
   margin: 0;
 }
 
-.seek:hover+.seek-tooltip {
+.seek:hover + .seek-tooltip {
   display: block;
 }
 
@@ -143,7 +149,8 @@ progress::-moz-progress-bar {
   transition: all 0.4s ease;
 }
 
-.volume-controls:hover input, .volume-controls input:focus {
+.volume-controls:hover input,
+.volume-controls input:focus {
   width: 100px;
   opacity: 1;
 }
@@ -207,7 +214,7 @@ button:hover::before {
   opacity: 0;
 }
 
-input[type=range] {
+input[type="range"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   height: 8.4px;
@@ -215,11 +222,11 @@ input[type=range] {
   cursor: pointer;
 }
 
-input[type=range]:focus {
+input[type="range"]:focus {
   outline: none;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   cursor: pointer;
   border-radius: 1.3px;
@@ -227,7 +234,7 @@ input[type=range]::-webkit-slider-runnable-track {
   transition: all 0.4s ease;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   height: 16px;
   width: 16px;
   border-radius: 16px;
@@ -237,27 +244,27 @@ input[type=range]::-webkit-slider-thumb {
   margin-left: -1px;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
+input[type="range"]:focus::-webkit-slider-runnable-track {
   background: transparent;
 }
 
-input[type=range].volume {
+input[type="range"].volume {
   height: 5px;
   background-color: #fff;
 }
 
-input[type=range].volume::-webkit-slider-runnable-track {
+input[type="range"].volume::-webkit-slider-runnable-track {
   background-color: transparent;
 }
 
-input[type=range].volume::-webkit-slider-thumb {
+input[type="range"].volume::-webkit-slider-thumb {
   margin-left: 0;
   height: 14px;
   width: 14px;
   background: #fff;
 }
 
-input[type=range]::-moz-range-track {
+input[type="range"]::-moz-range-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
@@ -266,7 +273,7 @@ input[type=range]::-moz-range-track {
   border-radius: 1.3px;
 }
 
-input[type=range]::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50px;
@@ -276,11 +283,11 @@ input[type=range]::-moz-range-thumb {
   margin-top: 5px;
 }
 
-input[type=range]:focus::-moz-range-track {
+input[type="range"]:focus::-moz-range-track {
   outline: none;
 }
 
-input[type=range].volume::-moz-range-thumb {
+input[type="range"].volume::-moz-range-thumb {
   border: 1px solid #fff;
   background: #fff;
 }
