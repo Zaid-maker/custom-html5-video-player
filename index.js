@@ -1,29 +1,23 @@
-const playbackIcons = document.querySelectorAll(".playback-icons use");
-const playButton = document.getElementById("play");
+// Select elements here
 const video = document.getElementById("video");
 const videoControls = document.getElementById("video-controls");
+const playButton = document.getElementById("play");
+const playbackIcons = document.querySelectorAll(".playback-icons use");
 const timeElapsed = document.getElementById("time-elapsed");
 const duration = document.getElementById("duration");
 const progressBar = document.getElementById("progress-bar");
 const seek = document.getElementById("seek");
 const seekTooltip = document.getElementById("seek-tooltip");
-
-// Volume controls
 const volumeButton = document.getElementById("volume-button");
 const volumeIcons = document.querySelectorAll(".volume-button use");
 const volumeMute = document.querySelector('use[href="#volume-mute"]');
 const volumeLow = document.querySelector('use[href="#volume-low"]');
 const volumeHigh = document.querySelector('use[href="#volume-high"]');
 const volume = document.getElementById("volume");
-
 const playbackAnimation = document.getElementById("playback-animation");
-
-// Full-screen controls
 const fullscreenButton = document.getElementById("fullscreen-button");
 const videoContainer = document.getElementById("video-container");
 const fullscreenIcons = fullscreenButton.querySelectorAll("use");
-
-// Picture-in-picture controls
 const pipButton = document.getElementById("pip-button");
 
 const videoWorks = !!document.createElement("video").canPlayType;
@@ -193,6 +187,19 @@ async function togglePip() {
   }
 }
 
+function hideControls() {
+  if (video.paused) {
+    return;
+  }
+
+  videoControls.classList.add("hide");
+}
+
+// showControls displays the video controls
+function showControls() {
+  videoControls.classList.remove("hide");
+}
+
 playButton.addEventListener("click", togglePlay);
 video.addEventListener("play", updatePlayButton);
 video.addEventListener("pause", updatePlayButton);
@@ -214,3 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 pipButton.addEventListener("click", togglePip);
+video.addEventListener("mouseenter", showControls);
+video.addEventListener("mouseleave", hideControls);
+videoControls.addEventListener("mouseenter", showControls);
+videoControls.addEventListener("mouseleave", hideControls);
