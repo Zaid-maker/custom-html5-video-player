@@ -23,6 +23,9 @@ const fullscreenButton = document.getElementById("fullscreen-button");
 const videoContainer = document.getElementById("video-container");
 const fullscreenIcons = fullscreenButton.querySelectorAll("use");
 
+// Picture-in-picture controls
+const pipButton = document.getElementById("pip-button");
+
 const videoWorks = !!document.createElement("video").canPlayType;
 if (videoWorks) {
   video.controls = false;
@@ -175,6 +178,21 @@ function updateFullscreenButton() {
   }
 }
 
+async function togglePip() {
+  try {
+    if (video != document.pictureInPictureElement) {
+      pipButton.disabled = true;
+      await video.requestPictureInPicture();
+    } else {
+      await document.exitPictureInPicture();
+    }
+  } catch (error) {
+    console.error(error);
+  } finally {
+    pipButton.disabled = false;
+  }
+}
+
 playButton.addEventListener("click", togglePlay);
 video.addEventListener("play", updatePlayButton);
 video.addEventListener("pause", updatePlayButton);
@@ -190,3 +208,9 @@ video.addEventListener("click", togglePlay);
 video.addEventListener("click", animatePlayback);
 fullscreenButton.onclick = toggleFullScreen;
 videoContainer.addEventListener("fullscreenchange", updateFullscreenButton);
+document.addEventListener("DOMContentLoaded", () => {
+  if (!("pictureInPictureEnabled" in document)) {
+    pipButton.classList.add("hidden");
+  }
+});
+pipButton.addEventListener("click", togglePip);
